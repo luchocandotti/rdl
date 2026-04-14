@@ -7,7 +7,7 @@
     --color-bone: #F2F1E7;
     --color-orange: #F26E21;
     --color-yellow: #F2AF21;
-    --radius: 5px;
+    --radius: 3px;
 }
 
 * {
@@ -81,6 +81,7 @@ p {
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
+    border-radius: var(--radius);
 }
 
 .btn-yellow {
@@ -95,4 +96,21 @@ p {
 footer {
     margin-top: 40px;
     color: var(--color-off);
+}
+
+@media(max-width: 620px) {
+    .page {
+        width: 100%;
+        padding: 40px;
+        margin: 0;
+    }
+
+    #botonera {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        text-align: center;
+    }
 }
