@@ -7,10 +7,9 @@
     --color-bone: #F2F1E7;
     --color-orange: #F26E21;
     --color-yellow: #F2AF21;
+    --fw-medium: 600;
     --radius: 3px;
 }
-
-/*RAMA DE LUCHO*/
 
 * {
     box-sizing: border-box;
@@ -37,6 +36,14 @@ p {
     font-weight: 400;
     line-height: 1.7;
     margin-bottom: 20px;
+}
+
+#convocatoria p {
+    text-align: justify;
+}
+
+.medium {
+    font-weight: var(--fw-medium);
 }
 
 .page {
