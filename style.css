@@ -37,6 +37,10 @@ p {
     margin-bottom: 20px;
 }
 
+#convocatoria p {
+    text-align: justify;
+}
+
 .page {
     width: 90dvw;
     max-width: 1080px;
