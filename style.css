@@ -38,6 +38,12 @@ body {
     align-items: center;
 }
 
+h1 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
 p {
     font-weight: 400;
     line-height: 1.7;
@@ -46,6 +52,10 @@ p {
 
 #convocatoria p {
     text-align: justify;
+}
+
+#convocatoria p:last-of-type {
+    margin-bottom: 0;
 }
 
 .medium {
@@ -73,10 +83,6 @@ p {
     width: 300px;
     height: auto;
     margin-bottom: 40px;
-}
-
-#convocatoria p:last-of-type {
-    margin-bottom: 0;
 }
 
 #botonera {
