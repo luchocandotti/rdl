@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 
+/* ============================================
+    VARIABLES
+============================================ */
+
 :root {
     --color-black: #000;
     --color-off: #999;
@@ -7,9 +11,11 @@
     --color-bone: #F2F1E7;
     --color-orange: #F26E21;
     --color-yellow: #F2AF21;
+    --color-gray: #888;
     --fw-medium: 600;
     --radius: 3px;
 }
+/* ========================= */
 
 * {
     box-sizing: border-box;
@@ -32,6 +38,12 @@ body {
     align-items: center;
 }
 
+h1 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
 p {
     font-weight: 400;
     line-height: 1.7;
@@ -40,6 +52,10 @@ p {
 
 #convocatoria p {
     text-align: justify;
+}
+
+#convocatoria p:last-of-type {
+    margin-bottom: 0;
 }
 
 .medium {
@@ -69,37 +85,93 @@ p {
     margin-bottom: 40px;
 }
 
-#convocatoria p:last-of-type {
-    margin-bottom: 0;
-}
-
 #botonera {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 14px;
     margin-top: 40px;
 }
 
-.btn,
 .btn {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: var(--fw-medium);
     padding: 15px 30px;
     white-space: nowrap;
     cursor: pointer;
     text-decoration: none;
+    text-align: center;
     display: inline-block;
     border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
+    transform: translateY(0);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, opacity 0.7s ease;
 }
 
 .btn-yellow {
     color: var(--color-white);
     background-color: var(--color-yellow);
+
+    border: none;
+    outline: none;
 }
 .btn-orange {
     color: var(--color-white);
     background-color: var(--color-orange);
+}
+.btn-gray {
+    margin-left: -14px;
+    opacity: 0;
+    max-width: 0;
+    padding: 0;
+    pointer-events: none;
+
+    color: var(--color-white);
+    background-color: var(--color-gray);
+}
+
+.btn-gray.visible {
+    margin-left: 0;
+    opacity: 1;
+    max-width: 200px;
+    padding: 15px 30px;
+    pointer-events: auto;
+}
+
+/* ============================================
+    SPONSORS
+============================================ */
+
+#sponsors {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.sponsors-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.sponsors-row img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.7;
+}
+
+.sponsors-row:first-child img:nth-child(1) {
+    height: 40px; /* IAAVIM */
+}
+.sponsors-row:last-child img:nth-child(3) {
+    height: 60px; /* Verde */
+}
+.sponsors-row:last-child img:nth-child(4) {
+    height: 40px; /* Ibermedia */
 }
 
 footer {
@@ -107,74 +179,12 @@ footer {
     color: var(--color-off);
 }
 
-/*HERO CAROUSEL*/
 
-#hero-carousel {
-    position: relative;
-    width: 100%;
-    /* Si querés que ocupe todo el ancho podés sacar o subir el max-width */
-    max-width: 1080px; 
-    height: 450px;
-    overflow: hidden;
-    border-radius: var(--radius);
-    margin-bottom: 40px;
-}
-.carousel-track {
-    display: flex;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-.carousel-track img {
-    width: 100%;
-    min-width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.4);
-    color: var(--color-white);
-    border: none;
-    font-size: 24px;
-    padding: 12px 16px;
-    cursor: pointer;
-    border-radius: var(--radius);
-    transition: background-color 0.3s ease;
-    z-index: 10;
-}
-.carousel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-.carousel-btn-prev {
-    left: 15px;
-}
-.carousel-btn-next {
-    right: 15px;
-}
-.carousel-dots {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-}
-.carousel-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.carousel-dot.active {
-    background-color: var(--color-white);
-}
 
+
+/* ============================================
+    RESPONSIVE
+============================================ */
 
 @media(max-width: 620px) {
     .page {
@@ -185,11 +195,12 @@ footer {
 
     #botonera {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
     }
 
-    .btn {
-        text-align: center;
+    .btn-gray {
+        max-height: 0;
+        margin-top: -14px;
     }
 
     #hero-carousel {
@@ -199,4 +210,27 @@ footer {
         font-size: 18px;
         padding: 8px 12px;
     }
+
+    .btn-gray.visible {
+        max-height: 100px;
+        margin-top: 0;
+    }
+
+    #sponsors {
+        width: 98%;
+    }
+    .sponsors-row img {
+        height: 40px;
+    }
+    .sponsors-row:first-child img:nth-child(1) {
+        height: 30px; /* IAAVIM */
+    }
+    .sponsors-row:last-child img:nth-child(3) {
+        height: 52px; /* Verde */
+    }
+    .sponsors-row:last-child img:nth-child(4) {
+        height: 30px; /* Ibermedia */
+    }
 }
+
+/* ========================= */
