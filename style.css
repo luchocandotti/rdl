@@ -249,7 +249,18 @@ footer {
     color: var(--color-off);
 }
 
+/* ============================================
+    HOVERS solo en DESK
+============================================ */
 
+@media (hover: hover) and (pointer: fine) {
+    .btn:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+    }
+}
+
+/* ========================= */
 
 
 /* ============================================
