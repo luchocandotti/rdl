@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 //HERO CAROUSEL
 
 const track = document.querySelector('.carousel-track');
@@ -33,11 +32,11 @@ btnPrev.addEventListener('click', () => {
     const prevIndex = currentIndex > 0 ? currentIndex - 1 : totalSlides - 1;
     goToSlide(prevIndex);
 });
-=======
+
 const btnBases = document.querySelector('.btn-yellow')
 const btnLanguage = document.querySelectorAll('.btn-gray')
 
 btnBases.addEventListener('click', function () {
     btnLanguage.forEach(btn => btn.classList.toggle('visible'))
 })
->>>>>>> ramaL
+
