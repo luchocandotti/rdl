@@ -146,7 +146,7 @@ p {
     position: relative;
     width: 100%;
     /* Si querés que ocupe todo el ancho podés sacar o subir el max-width */
-    max-width: 1080px; 
+    max-width: 1080px;
     height: 450px;
     overflow: hidden;
     border-radius: var(--radius);
@@ -168,27 +168,38 @@ p {
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.4);
-    color: var(--color-white);
     border: none;
-    font-size: 24px;
-    padding: 12px 16px;
+    padding: 14px 16px;
     cursor: pointer;
-    border-radius: var(--radius);
+    border-radius: 999px;
     transition: background-color 0.3s ease;
     z-index: 10;
 }
+
+.carousel-btn img {
+    width: 10px;
+    height: 10px;
+}
+
+.carousel-btn-prev img {
+    padding-right: 2px;
+}
+.carousel-btn-next img {
+    transform: scaleX(-1);
+}
+
 .carousel-btn:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
 .carousel-btn-prev {
-    left: 15px;
+    left: 30px;
 }
 .carousel-btn-next {
-    right: 15px;
+    right: 30px;
 }
 .carousel-dots {
     position: absolute;
-    bottom: 15px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -196,8 +207,8 @@ p {
     z-index: 10;
 }
 .carousel-dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
@@ -228,20 +239,16 @@ p {
 }
 
 .sponsors-row img {
-    height: 50px;
-    width: auto;
+    flex: 1;          /* cada imagen ocupa 1 parte igual del espacio disponible */
+    min-width: 0;     /* evita que flex-items se desborden */
+    height: 70px;
     object-fit: contain;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .sponsors-row:first-child img:nth-child(1) {
-    height: 40px; /* IAAVIM */
-}
-.sponsors-row:last-child img:nth-child(3) {
-    height: 60px; /* Verde */
-}
-.sponsors-row:last-child img:nth-child(4) {
-    height: 40px; /* Ibermedia */
+    flex: 1.5;
+    height: 60px;
 }
 
 footer {
@@ -301,16 +308,7 @@ footer {
         width: 98%;
     }
     .sponsors-row img {
-        height: 40px;
-    }
-    .sponsors-row:first-child img:nth-child(1) {
-        height: 30px; /* IAAVIM */
-    }
-    .sponsors-row:last-child img:nth-child(3) {
-        height: 52px; /* Verde */
-    }
-    .sponsors-row:last-child img:nth-child(4) {
-        height: 30px; /* Ibermedia */
+        height: 60px;
     }
 }
 
