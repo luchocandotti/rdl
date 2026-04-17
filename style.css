@@ -438,6 +438,7 @@ footer {
         align-items: stretch;
         width: max-content;
         margin: 40px auto 80px auto;
+        gap: 14px;
     }
 
     #botonera .btn {
@@ -448,8 +449,7 @@ footer {
         max-height: 0;
         max-width: 100%;
         margin-top: -14px;
-        padding-top: 0;
-        padding-bottom: 0;
+        padding: 0 14px;
         overflow: hidden;
     }
 
@@ -481,8 +481,7 @@ footer {
         max-height: 100px;
         max-width: 100%;
         margin-top: 0;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding: 10px 14px;
     }
 
     .dropdown-menu {
