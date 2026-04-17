@@ -20,6 +20,7 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     color: var(--color-text);
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -112,10 +113,7 @@ p {
     white-space: nowrap;
 }
 
-.nav-link:hover {
-    color: var(--color-orange);
-    transform: translateY(-4px);
-}
+
 
 
 
@@ -327,10 +325,7 @@ footer {
     display: inline-block;
 }
 
-.dropdown-item:hover {
-    color: var(--color-orange);
-    transform: translateY(-4px);
-}
+
 
 .dropdown:hover>.nav-link {
     color: var(--color-orange);
@@ -389,6 +384,20 @@ footer {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         transform: translateY(-5px);
     }
+
+    .nav-link:hover,
+    .dropdown-item:hover {
+        color: var(--color-orange);
+        transform: translateY(-4px);
+    }
+}
+
+.nav-link:active,
+.dropdown-item:active,
+.nav-link.touch-active,
+.dropdown-item.touch-active {
+    color: var(--color-orange);
+    transform: translateY(-4px);
 }
 
 

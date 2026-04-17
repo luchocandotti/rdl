@@ -54,3 +54,14 @@ if (btnDropdown && dropdownMenu) {
         dropdownMenu.classList.toggle('visible')
     })
 }
+
+// EFECTO VISUAL CLICK RESPONSIVE
+const navItems = document.querySelectorAll('.nav-link, .dropdown-item')
+navItems.forEach(item => {
+    item.addEventListener('click', function () {
+        this.classList.add('touch-active')
+        setTimeout(() => {
+            this.classList.remove('touch-active')
+        }, 300) // Lo mantiene iluminado 300ms y lo suelta
+    })
+})
