@@ -50,8 +50,13 @@ const dropdownMenu = document.querySelector('.dropdown-menu')
 
 if (btnDropdown && dropdownMenu) {
     btnDropdown.addEventListener('click', function (e) {
-        e.preventDefault() // Evitamos que intente bajar la página de golpe
-        dropdownMenu.classList.toggle('visible')
+        // En pantallas móviles (<= 620px) NO prevenimos el comportamiento nativo.
+        // El link llevará directamente a #alumni.
+        // Solo en PC/Tablet (> 620px) abrimos el submenú.
+        if (window.innerWidth > 620) {
+            e.preventDefault()
+            dropdownMenu.classList.toggle('visible')
+        }
     })
 }
 

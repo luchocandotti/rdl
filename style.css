@@ -495,11 +495,7 @@ footer {
     }
 
     .dropdown-menu {
-        display: none;
-    }
-
-    .dropdown-menu.visible {
-        display: flex;
+        display: none !important;
     }
 
     #sponsors {
