@@ -50,11 +50,17 @@ p {
     margin-bottom: 20px;
 }
 
-#convocatoria p {
+#convocatoria p,
+#sobre-rdl p,
+#alumni p,
+#dialogos p {
     text-align: justify;
 }
 
-#convocatoria p:last-of-type {
+#convocatoria p:last-of-type,
+#sobre-rdl p:last-of-type,
+#alumni p:last-of-type,
+#dialogos p:last-of-type {
     margin-bottom: 0;
 }
 
@@ -85,12 +91,46 @@ p {
     margin-bottom: 40px;
 }
 
+/* ============================================
+    NAV MENU FLOTANTE
+============================================ */
+
+#main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 8px 12px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-black);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: var(--color-orange);
+    transform: translateY(-4px);
+}
+
+/* ============================================ */
+
 #botonera {
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 14px;
     margin-top: 40px;
+    margin-bottom: 80px;
 }
 
 .btn {
@@ -217,7 +257,7 @@ p {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    margin-top: 40px;
+    margin: 40px auto 0 auto;
 }
 
 .sponsors-row {
@@ -250,6 +290,94 @@ footer {
 }
 
 /* ============================================
+    DROPDOWN MENÚ (INICIATIVAS)
+============================================ */
+
+.dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    display: none;
+    flex-direction: row;
+    gap: 8px;
+    padding: 0;
+    margin-left: 8px; /* Separación con INICIATIVAS */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-item {
+    color: var(--color-black);
+    padding: 8px 20px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: color 0.3s, transform 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.dropdown-item:hover {
+    color: var(--color-orange);
+    transform: translateY(-4px);
+}
+
+.dropdown:hover > .nav-link {
+    color: var(--color-orange);
+}
+
+#alumni,
+#dialogos,
+#ediciones {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.ediciones-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.edicion-anio {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.edicion-anio h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-orange);
+    border-bottom: 2px solid var(--color-bone);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+}
+
+.edicion-anio a {
+    text-decoration: none;
+    color: var(--color-black);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    transform: translateY(0);
+}
+
+.edicion-anio a:hover {
+    color: var(--color-orange);
+    transform: translateX(4px);
+}
+
+/* ============================================
     HOVERS solo en DESK
 ============================================ */
 
@@ -267,26 +395,83 @@ footer {
     RESPONSIVE
 ============================================ */
 
+@media(max-width: 900px) {
+    .page {
+        padding: 50px 40px;
+    }
+    
+    #botonera {
+        flex-wrap: nowrap;
+        gap: 6px;
+    }
+    
+    .btn {
+        padding: 10px 14px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+    
+    .btn-gray.visible {
+        max-width: 110px;
+        padding: 10px 14px;
+    }
+
+    #sponsors {
+        width: 100%;
+    }
+    
+    .sponsors-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
 @media(max-width: 620px) {
     .page {
         width: 100%;
-        padding: 40px;
+        padding: 40px 15px;
         margin: 0;
     }
 
     #botonera {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        width: max-content;
+        margin: 40px auto 80px auto;
+    }
+
+    #botonera .btn {
+        width: 100%;
     }
 
     .btn-gray {
         max-height: 0;
+        max-width: 100%;
         margin-top: -14px;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
     }
 
     #hero-carousel {
         height: 250px;
     }
+
+    #main-nav {
+        gap: 6px;
+        padding: 6px 0;
+        flex-wrap: nowrap;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 9px;
+        padding: 6px 2px;
+    }
+
     .carousel-btn {
         font-size: 18px;
         padding: 8px 12px;
@@ -294,23 +479,35 @@ footer {
 
     .btn-gray.visible {
         max-height: 100px;
+        max-width: 100%;
         margin-top: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .dropdown-menu {
+        display: none !important;
     }
 
     #sponsors {
-        width: 98%;
+        width: 100%;
+    }
+    .sponsors-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
     }
     .sponsors-row img {
-        height: 40px;
+        height: 30px;
     }
     .sponsors-row:first-child img:nth-child(1) {
-        height: 30px; /* IAAVIM */
+        height: 24px; /* IAAVIM */
     }
     .sponsors-row:last-child img:nth-child(3) {
-        height: 52px; /* Verde */
+        height: 40px; /* Verde */
     }
     .sponsors-row:last-child img:nth-child(4) {
-        height: 30px; /* Ibermedia */
+        height: 24px; /* Ibermedia */
     }
 }
 
