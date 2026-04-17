@@ -52,6 +52,5 @@ if (btnDropdown && dropdownMenu) {
     btnDropdown.addEventListener('click', function (e) {
         e.preventDefault() // Evitamos que intente bajar la página de golpe
         dropdownMenu.classList.toggle('visible')
-        btnDropdown.classList.toggle('active')
     })
 }

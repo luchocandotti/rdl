@@ -112,8 +112,7 @@ p {
     white-space: nowrap;
 }
 
-.nav-link:active,
-.nav-link.active {
+.nav-link:hover {
     color: var(--color-orange);
     transform: translateY(-4px);
 }
@@ -328,7 +327,7 @@ footer {
     display: inline-block;
 }
 
-.dropdown-item:active {
+.dropdown-item:hover {
     color: var(--color-orange);
     transform: translateY(-4px);
 }
