@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 
-/* ============================================
-    VARIABLES
-============================================ */
 
 :root {
     --color-black: #000;
@@ -15,7 +12,7 @@
     --fw-medium: 600;
     --radius: 3px;
 }
-/* ========================= */
+
 
 * {
     box-sizing: border-box;
@@ -91,9 +88,7 @@ p {
     margin-bottom: 40px;
 }
 
-/* ============================================
-    NAV MENU FLOTANTE
-============================================ */
+/*NAV MENU FLOTANTE */
 
 #main-nav {
     display: flex;
@@ -117,12 +112,13 @@ p {
     white-space: nowrap;
 }
 
-.nav-link:hover {
+.nav-link:active,
+.nav-link.active {
     color: var(--color-orange);
     transform: translateY(-4px);
 }
 
-/* ============================================ */
+
 
 #botonera {
     width: 100%;
@@ -155,10 +151,12 @@ p {
     border: none;
     outline: none;
 }
+
 .btn-orange {
     color: var(--color-white);
     background-color: var(--color-orange);
 }
+
 .btn-gray {
     margin-left: -14px;
     opacity: 0;
@@ -178,31 +176,32 @@ p {
     pointer-events: auto;
 }
 
-/* ============================================
-    CAROUSEL
-============================================ */
+/*CAROUSEL*/
 
 #hero-carousel {
     position: relative;
     width: 100%;
-    /* Si querés que ocupe todo el ancho podés sacar o subir el max-width */
-    max-width: 1080px; 
+
+    max-width: 1080px;
     height: 450px;
     overflow: hidden;
     border-radius: var(--radius);
     margin-bottom: 40px;
 }
+
 .carousel-track {
     display: flex;
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
+
 .carousel-track img {
     width: 100%;
     min-width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -217,15 +216,19 @@ p {
     transition: background-color 0.3s ease;
     z-index: 10;
 }
+
 .carousel-btn:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
+
 .carousel-btn-prev {
     left: 15px;
 }
+
 .carousel-btn-next {
     right: 15px;
 }
+
 .carousel-dots {
     position: absolute;
     bottom: 15px;
@@ -235,6 +238,7 @@ p {
     gap: 10px;
     z-index: 10;
 }
+
 .carousel-dot {
     width: 12px;
     height: 12px;
@@ -244,13 +248,12 @@ p {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .carousel-dot.active {
     background-color: var(--color-white);
 }
 
-/* ============================================
-    SPONSORS
-============================================ */
+/* SPONSORS*/
 
 #sponsors {
     width: 70%;
@@ -275,13 +278,18 @@ p {
 }
 
 .sponsors-row:first-child img:nth-child(1) {
-    height: 40px; /* IAAVIM */
+    height: 40px;
+    /* IAAVIM */
 }
+
 .sponsors-row:last-child img:nth-child(3) {
-    height: 60px; /* Verde */
+    height: 60px;
+    /* Verde */
 }
+
 .sponsors-row:last-child img:nth-child(4) {
-    height: 40px; /* Ibermedia */
+    height: 40px;
+    /* Ibermedia */
 }
 
 footer {
@@ -289,9 +297,7 @@ footer {
     color: var(--color-off);
 }
 
-/* ============================================
-    DROPDOWN MENÚ (INICIATIVAS)
-============================================ */
+/* DROPDOWN MENÚ (INICIATIVAS)*/
 
 .dropdown {
     display: flex;
@@ -303,10 +309,10 @@ footer {
     flex-direction: row;
     gap: 8px;
     padding: 0;
-    margin-left: 8px; /* Separación con INICIATIVAS */
+    margin-left: 8px;
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown-menu.visible {
     display: flex;
 }
 
@@ -322,12 +328,12 @@ footer {
     display: inline-block;
 }
 
-.dropdown-item:hover {
+.dropdown-item:active {
     color: var(--color-orange);
     transform: translateY(-4px);
 }
 
-.dropdown:hover > .nav-link {
+.dropdown:hover>.nav-link {
     color: var(--color-orange);
 }
 
@@ -377,9 +383,7 @@ footer {
     transform: translateX(4px);
 }
 
-/* ============================================
-    HOVERS solo en DESK
-============================================ */
+/*HOVERS solo en DESK*/
 
 @media (hover: hover) and (pointer: fine) {
     .btn:hover {
@@ -388,29 +392,27 @@ footer {
     }
 }
 
-/* ========================= */
 
 
-/* ============================================
-    RESPONSIVE
-============================================ */
+
+/*RESPONSIVE*/
 
 @media(max-width: 900px) {
     .page {
         padding: 50px 40px;
     }
-    
+
     #botonera {
         flex-wrap: nowrap;
         gap: 6px;
     }
-    
+
     .btn {
         padding: 10px 14px;
         font-size: 11px;
         white-space: nowrap;
     }
-    
+
     .btn-gray.visible {
         max-width: 110px;
         padding: 10px 14px;
@@ -419,7 +421,7 @@ footer {
     #sponsors {
         width: 100%;
     }
-    
+
     .sponsors-row {
         flex-wrap: wrap;
         justify-content: center;
@@ -485,29 +487,39 @@ footer {
     }
 
     .dropdown-menu {
-        display: none !important;
+        display: none;
+    }
+
+    .dropdown-menu.visible {
+        display: flex;
     }
 
     #sponsors {
         width: 100%;
     }
+
     .sponsors-row {
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
     }
+
     .sponsors-row img {
         height: 30px;
     }
+
     .sponsors-row:first-child img:nth-child(1) {
-        height: 24px; /* IAAVIM */
+        height: 24px;
+        /* IAAVIM */
     }
+
     .sponsors-row:last-child img:nth-child(3) {
-        height: 40px; /* Verde */
+        height: 40px;
+        /* Verde */
     }
+
     .sponsors-row:last-child img:nth-child(4) {
-        height: 24px; /* Ibermedia */
+        height: 24px;
+        /* Ibermedia */
     }
 }
-
-/* ========================= */

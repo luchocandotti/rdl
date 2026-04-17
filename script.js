@@ -1,5 +1,5 @@
 
-//HERO CAROUSEL ================================= //
+//HERO CAROUSEL
 const track = document.querySelector('.carousel-track')
 const images = document.querySelectorAll('.carousel-track img')
 const btnPrev = document.querySelector('.carousel-btn-prev')
@@ -32,15 +32,26 @@ btnPrev.addEventListener('click', () => {
     const prevIndex = currentIndex > 0 ? currentIndex - 1 : totalSlides - 1
     goToSlide(prevIndex)
 });
-// ================================= //
 
 
-// BOTONES ================================= //
+
+// BOTONES 
 const btnBases = document.querySelector('.btn-yellow')
 const btnLanguage = document.querySelectorAll('.btn-gray')
 
-btnBases.addEventListener('click', function () {
+btnBases.addEventListener('click', function (e) {
+    e.preventDefault()
     btnLanguage.forEach(btn => btn.classList.toggle('visible'))
 })
-// ================================= //
 
+// NAV FLOTANTE (Ocultar hover y usar click)
+const btnDropdown = document.querySelector('.dropdown > .nav-link')
+const dropdownMenu = document.querySelector('.dropdown-menu')
+
+if (btnDropdown && dropdownMenu) {
+    btnDropdown.addEventListener('click', function (e) {
+        e.preventDefault() // Evitamos que intente bajar la página de golpe
+        dropdownMenu.classList.toggle('visible')
+        btnDropdown.classList.toggle('active')
+    })
+}
