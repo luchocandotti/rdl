@@ -297,7 +297,8 @@ footer {
 /* DROPDOWN MENÚ (INICIATIVAS)*/
 
 .dropdown {
-    display: flex;
+    display: inline-flex;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -306,7 +307,7 @@ footer {
     flex-direction: row;
     gap: 8px;
     padding: 0;
-    margin-left: 8px;
+    margin-left: 10px;
 }
 
 .dropdown-menu.visible {
@@ -400,6 +401,81 @@ footer {
     transform: translateY(-4px);
 }
 
+/*STICKY HEADER*/
+
+#sticky-header {
+    position: fixed;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-orange);
+    z-index: 1000;
+    transition: top 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+#sticky-header.visible {
+    top: 0;
+    opacity: 1;
+}
+
+.sticky-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 12px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sticky-links {
+    display: flex;
+    gap: 30px;
+}
+
+.s-nav-link {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.s-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-white);
+    transition: width 0.3s ease;
+}
+
+.s-nav-link.active::after {
+    width: 100%;
+}
+
+.sticky-bird {
+    height: 35px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+/* Transición para logo principal */
+.main-logo {
+    transition: opacity 0.5s ease;
+}
+
+.main-logo.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
 
 
 
@@ -496,6 +572,29 @@ footer {
 
     .dropdown-menu {
         display: none !important;
+    }
+
+    .dropdown-item {
+        font-size: 9px;
+        padding: 6px 10px;
+    }
+
+    /* STICKY HEADER RESPONSIVE */
+    .sticky-content {
+        padding: 10px 15px;
+    }
+
+    .sticky-links {
+        gap: 12px;
+    }
+
+    .s-nav-link {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+
+    .sticky-bird {
+        height: 25px;
     }
 
     #sponsors {

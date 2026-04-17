@@ -9,9 +9,21 @@
 </head>
 
 <body>
+    <nav id="sticky-header">
+        <div class="sticky-content">
+            <div class="sticky-links">
+                <a href="#hero-carousel" class="s-nav-link">INICIO</a>
+                <a href="#sobre-rdl" class="s-nav-link">SOBRE RDL</a>
+                <a href="#alumni" class="s-nav-link">INICIATIVAS</a>
+                <a href="#ediciones" class="s-nav-link">EDICIONES ANTERIORES</a>
+            </div>
+            <img src="img/bird.svg" alt="RDL" class="sticky-bird">
+        </div>
+    </nav>
+
     <div class="page">
         <section id="header">
-            <img src="img/rdl_marca.svg" alt="Residencia del Lago 2026">
+            <img src="img/rdl_marca.svg" alt="Residencia del Lago 2026" class="main-logo">
         </section>
         <nav id="main-nav">
             <a href="#hero-carousel" class="nav-link">INICIO</a>
@@ -23,7 +35,17 @@
                     <a href="#dialogos" class="dropdown-item">DIÁLOGOS</a>
                 </div>
             </div>
-            <a href="#ediciones" class="nav-link">EDICIONES ANTERIORES</a>
+            <div class="dropdown">
+                <a href="#ediciones" class="nav-link">EDICIONES ANTERIORES</a>
+                <!-- Submenú de años oculto por ahora
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">AÑO 2022</a>
+                    <a href="#" class="dropdown-item">AÑO 2023</a>
+                    <a href="#" class="dropdown-item">AÑO 2024</a>
+                    <a href="#" class="dropdown-item">AÑO 2025</a>
+                </div>
+                -->
+            </div>
         </nav>
         <section id="hero-carousel">
             <div class="carousel-track">
@@ -181,7 +203,7 @@
             <p>© 2026 Residencia del Lago</p>
         </footer>
     </div>
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
