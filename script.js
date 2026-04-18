@@ -9,7 +9,7 @@ const dotsContainer = document.querySelector('.carousel-dots')
 
 //NAV
 const nav = document.querySelector('nav');
-const bird = document.querySelector('#menu img');
+const bird = document.querySelector('#bird');
 const header = document.querySelector('#header');
 
 // Cambiar color nav y mostrar bird

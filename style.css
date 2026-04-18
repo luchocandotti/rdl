@@ -94,11 +94,17 @@ nav #menu {
     list-style: none;
 }
 
-#menu img {
+#bird {
     opacity: 0;
     height: 40px;
     width: auto;
     transition: opacity 0.6s ease;
+}
+
+#movil {
+    display: none;
+    width: 30px;
+    height: auto;
 }
 /* ========================= */
 
@@ -360,6 +366,15 @@ section p {
 ============================================ */
 
 @media(max-width: 620px) {
+    nav #menu {
+        width: 100%;
+    }
+    #movil {
+        display: flex;
+    }
+    #menu ul {
+        display: none;
+    }
     .page {
         width: 100%;
         padding: 40px;
