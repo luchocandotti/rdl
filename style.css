@@ -38,6 +38,70 @@ body {
     align-items: center;
 }
 
+/* ============================================
+    nav
+============================================ */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-yellow);
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.4s ease;
+}
+
+nav.color {
+    background-color: var(--color-orange);
+}
+
+nav #menu {
+    width: 90dvw;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 12px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: width 0.3s ease;
+}
+
+/* Solo el ul principal en fila */
+#menu > ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+#menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--color-white);
+    font-weight: var(--fw-medium);
+    transition: color 0.3s ease;
+}
+
+#menu a.active {
+    text-decoration: underline;
+}
+
+/* Los submenús en columna */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+}
+
+#menu img {
+    opacity: 0;
+    height: 40px;
+    width: auto;
+    transition: opacity 0.6s ease;
+}
+/* ========================= */
+
 h1 {
     font-size: 18px;
     font-weight: 700;
@@ -50,7 +114,7 @@ p {
     margin-bottom: 20px;
 }
 
-#convocatoria p {
+section p {
     text-align: justify;
 }
 
@@ -72,6 +136,10 @@ p {
     align-items: center;
     margin: 0 auto;
     transition: width 0.3s ease;
+}
+
+.page section:first-of-type {
+    margin-top: 60px;
 }
 
 #header {
@@ -272,6 +340,15 @@ p {
     }
     .carousel-btn:hover {
         background-color: rgba(0, 0, 0, 0.7);
+    }
+    #menu a:hover {
+        color: var(--color-black);
+    }
+    #menu a.active,
+    #menu a.active:hover {
+        text-decoration: underline;
+        cursor: default;
+        color: var(--color-white);
     }
 }
 

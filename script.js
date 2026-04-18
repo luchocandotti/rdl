@@ -6,6 +6,41 @@ const btnPrev = document.querySelector('.carousel-btn-prev')
 const btnNext = document.querySelector('.carousel-btn-next')
 const dotsContainer = document.querySelector('.carousel-dots')
 
+
+//NAV
+const nav = document.querySelector('nav');
+const bird = document.querySelector('#menu img');
+const header = document.querySelector('#header');
+
+// Cambiar color nav y mostrar bird
+if (header && nav) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                nav.classList.add('color')
+                bird.style.opacity = '1'
+            } else {
+                nav.classList.remove('color')
+                bird.style.opacity = '0'
+            }
+        });
+    }, { threshold: 0, rootMargin: '-200px 0px 0px 0px' })
+    observer.observe(header)
+} else {
+    // Si no hay logo, mostrar directo nav con bird
+    nav.classList.add('color')
+    bird.style.opacity = '1'
+}
+
+// Marcar en qué sección estoy con underline
+const navLinks = document.querySelectorAll('#menu a')
+navLinks.forEach(link => {
+    if (link.href === window.location.href) {
+        link.classList.add('active')
+    }
+})
+
+//CAROUSEL
 let currentIndex = 0
 const totalSlides = images.length
 
