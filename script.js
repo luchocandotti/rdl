@@ -1,5 +1,5 @@
 
-//HERO CAROUSEL ================================= //
+//HERO CAROUSEL
 const track = document.querySelector('.carousel-track')
 const images = document.querySelectorAll('.carousel-track img')
 const btnPrev = document.querySelector('.carousel-btn-prev')
@@ -94,15 +94,15 @@ carousel.addEventListener('touchend', (e) => {
     }
 }, { passive: true })
 
-// ================================= //
 
 
-// BOTONES ================================= //
+
+// BOTONES 
 const btnBases = document.querySelector('.btn-yellow')
 const btnLanguage = document.querySelectorAll('.btn-gray')
 
 btnBases.addEventListener('click', function () {
     btnLanguage.forEach(btn => btn.classList.toggle('visible'))
 })
-// ================================= //
+
 
