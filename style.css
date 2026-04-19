@@ -53,7 +53,7 @@ nav {
 }
 
 nav.color {
-    background-color: var(--color-orange);
+    background-color: var(--color-yellow);
 }
 
 nav #menu {
@@ -98,7 +98,10 @@ nav #menu {
     height: 60px;
     width: auto;
     transition: opacity 0.6s ease;
+    z-index: 1001;
+    position: relative;
 }
+
 
 #movil {
     display: none;
@@ -418,6 +421,25 @@ section p {
         max-height: 100px;
         margin-top: 0;
     }
+
+    /*MENU MOVIL*/
+    #menu ul.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-yellow);
+        padding: 20px;
+    }
+
+    /* Para los submenús de Iniciativas/Ediciones */
+    #menu ul.show .dropdown-menu.show-submenu {
+        display: flex;
+        z-index: 999;
+        top: 100%;
+    }
 }
 
 @media(max-width: 1080px) {
@@ -425,6 +447,7 @@ section p {
         width: 98%;
     }
 }
+
 
 /* ========================= */
 
