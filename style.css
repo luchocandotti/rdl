@@ -385,6 +385,7 @@ section p {
 
 @media(max-width: 620px) {
     nav #menu {
+        transform: translateY(-1px);
         width: 100%;
     }
 
