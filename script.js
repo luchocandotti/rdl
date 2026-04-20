@@ -110,21 +110,21 @@ if (btnBases) {
     });
 }
 
-/*MENU MOVIL*/
+/* MENU MOVIL */
 const menuIcon = document.querySelector('#movil');
-const mainNav = document.querySelector('#menu ul');
-// 1. Abrir/Cerrar el menú principal
+const menuMovil = document.querySelector('#menu-movil');
+
 menuIcon.addEventListener('click', () => {
-    mainNav.classList.toggle('show');
-});
-// 2. Abrir/Cerrar submenús (Iniciativas, etc)
-const dropdowns = document.querySelectorAll('.dropdown');
-dropdowns.forEach(drop => {
-    drop.addEventListener('click', (e) => {
-        // Buscamos el submenú dentro de ese ítem
-        const submenu = drop.querySelector('.dropdown-menu');
-        if (submenu) {
-            submenu.classList.toggle('show-submenu');
-        }
-    });
-});
+    menuMovil.classList.toggle('show')
+})
+
+const dropdownsMovil = document.querySelectorAll('.dropdown-movil')
+dropdownsMovil.forEach(drop => {
+    const parentLink = drop.querySelector('a')
+    const submenu = drop.querySelector('.dropdown-menu-movil')
+    
+    parentLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        submenu.classList.toggle('show-submenu')
+    })
+})

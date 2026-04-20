@@ -68,7 +68,7 @@ nav #menu {
 }
 
 /* Solo el ul principal en fila */
-#menu>ul {
+#menu > ul {
     display: flex;
     gap: 20px;
     list-style: none;
@@ -95,18 +95,21 @@ nav #menu {
 
 #bird {
     opacity: 0;
-    height: 60px;
+    height: 40px;
     width: auto;
     transition: opacity 0.6s ease;
     z-index: 1001;
     position: relative;
 }
 
-
 #movil {
     display: none;
     width: 30px;
     height: auto;
+}
+
+#menu-movil {
+    display: none;
 }
 
 /* ========================= */
@@ -388,13 +391,9 @@ section p {
         transform: translateY(-1px);
         width: 100%;
     }
-
     #movil {
         display: flex;
-    }
-
-    #menu ul {
-        display: none;
+        cursor: pointer;
     }
 
     .page {
@@ -424,22 +423,59 @@ section p {
     }
 
     /*MENU MOVIL*/
-    #menu ul.show {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: var(--color-yellow);
-        padding: 20px;
+    /* Ocultar menu desktop */
+    nav #menu > ul {
+        display: none;
     }
 
-    /* Para los submenús de Iniciativas/Ediciones */
-    #menu ul.show .dropdown-menu.show-submenu {
+    /* Mostrar container mobile pero colapsado */
+    #menu-movil {
         display: flex;
-        z-index: 999;
-        top: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.7s ease-in-out;
+    }
+    #menu-movil ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+    }
+    /* Agrega espacio solo a los ul hijos de menu-movil */
+    #menu-movil > ul {
+        gap: 20px;
+        padding: 0 40px 30px 40px;
+    }
+    /* Agrega espacio solo a los ul hijos de .dropdown-movil */
+    .dropdown-movil > ul {
+        gap: 20px;
+    }
+    #menu-movil.show {
+        max-height: 1000px; /* mayor al contenido real */
+    }
+    #menu-movil a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: var(--color-white);
+        font-weight: var(--fw-medium);
+    }
+
+    /* Submenús colapsados por defecto */
+    .dropdown-menu-movil {
+        list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.7s ease-in-out;
+    }
+    .dropdown-menu-movil > li:first-child {
+        margin-top: 20px;
+    }
+    .dropdown-menu-movil.show-submenu {
+        max-height: 300px;
+    }
+
+    /* Flecha o indicador visual (opcional) */
+    .dropdown-movil > a {
+        cursor: pointer;
     }
 }
 
