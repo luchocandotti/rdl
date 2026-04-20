@@ -6,39 +6,84 @@ const btnPrev = document.querySelector('.carousel-btn-prev')
 const btnNext = document.querySelector('.carousel-btn-next')
 const dotsContainer = document.querySelector('.carousel-dots')
 
+// INYECTA NAV HTML
+fetch('nav.html')
+    .then(res => res.text())
+    .then(html => {
+        document.getElementById('nav-placeholder').innerHTML = html
+        initNav()
+    })
+
 
 //NAV
-const nav = document.querySelector('nav');
-const bird = document.querySelector('#bird');
-const header = document.querySelector('#header');
+function initNav() {
+    const nav = document.querySelector('nav');
+    const bird = document.querySelector('#bird');
+    const header = document.querySelector('#header');
 
-// Cambiar color nav y mostrar bird
-if (header && nav) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                nav.classList.add('color')
-                bird.style.opacity = '1'
-            } else {
-                nav.classList.remove('color')
-                bird.style.opacity = '0'
-            }
-        });
-    }, { threshold: 0, rootMargin: '-200px 0px 0px 0px' })
-    observer.observe(header)
-} else {
-    // Si no hay logo, mostrar directo nav con bird
-    nav.classList.add('color')
-    bird.style.opacity = '1'
-}
-
-// Marcar en qué sección estoy con underline
-const navLinks = document.querySelectorAll('#menu a')
-navLinks.forEach(link => {
-    if (link.href === window.location.href) {
-        link.classList.add('active')
+    // Mostrar bird
+    if (header && nav) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    // nav.classList.add('color')
+                    bird.style.opacity = '1'
+                } else {
+                    // nav.classList.remove('color')
+                    bird.style.opacity = '0'
+                }
+            });
+        }, { threshold: 0, rootMargin: '-200px 0px 0px 0px' })
+        observer.observe(header)
+    } else {
+        // Si no hay logo, mostrar directo nav con bird
+        nav.classList.add('color')
+        bird.style.opacity = '1'
     }
-})
+    
+    /* MENU DESKTOP */
+    const dropdowns = document.querySelectorAll('.dropdown')
+    const menu = document.querySelector('#menu')
+    dropdowns.forEach(drop => {
+        const parentLink = drop.querySelector('a')
+        const submenu = drop.querySelector('.dropdown-menu')
+    
+        parentLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const yaAbierto = submenu.classList.contains('show')
+
+            // Cerrar todos primero
+            document.querySelectorAll('.dropdown-menu.show').forEach(s => s.classList.remove('show'))
+        
+            // Abrir este si no estaba ya abierto
+            if (!yaAbierto) submenu.classList.add('show')
+
+            // Sincronizar el menu
+            const algunoAbierto = document.querySelector('.dropdown-menu.show')
+            menu.classList.toggle('show', !!algunoAbierto)
+        })
+    })
+
+    /* MENU MOVIL */
+    const menuIcon = document.querySelector('#movil');
+    const menuMovil = document.querySelector('#menu-movil');
+
+    menuIcon.addEventListener('click', () => {
+        menuMovil.classList.toggle('show')
+    })
+
+    const dropdownsMovil = document.querySelectorAll('.dropdown-movil')
+    dropdownsMovil.forEach(drop => {
+        const parentLink = drop.querySelector('a')
+        const submenu = drop.querySelector('.dropdown-menu-movil')
+    
+        parentLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            submenu.classList.toggle('show-submenu')
+        })
+    })
+    
+}
 
 //CAROUSEL
 let currentIndex = 0
@@ -109,22 +154,3 @@ if (btnBases) {
         btnLanguage.forEach(btn => btn.classList.toggle('visible'));
     });
 }
-
-/* MENU MOVIL */
-const menuIcon = document.querySelector('#movil');
-const menuMovil = document.querySelector('#menu-movil');
-
-menuIcon.addEventListener('click', () => {
-    menuMovil.classList.toggle('show')
-})
-
-const dropdownsMovil = document.querySelectorAll('.dropdown-movil')
-dropdownsMovil.forEach(drop => {
-    const parentLink = drop.querySelector('a')
-    const submenu = drop.querySelector('.dropdown-menu-movil')
-    
-    parentLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        submenu.classList.toggle('show-submenu')
-    })
-})
