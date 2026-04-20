@@ -40,7 +40,7 @@ function initNav() {
         nav.classList.add('color')
         bird.style.opacity = '1'
     }
-    
+
     /* MENU DESKTOP */
     const dropdowns = document.querySelectorAll('.dropdown')
     const menu = document.querySelector('#menu')
@@ -60,8 +60,34 @@ function initNav() {
 
             // Sincronizar el menu
             const algunoAbierto = document.querySelector('.dropdown-menu.show')
-            menu.classList.toggle('show', !!algunoAbierto)
+            setTimeout(() => {
+                menu.classList.toggle('show', !!algunoAbierto)
+            }, 300)  // igual a la duración de la transición
         })
+        
+        /* parentLink.addEventListener('click', (e) => {
+            e.preventDefault()
+            const yaAbierto = submenu.classList.contains('show')
+            const algoEstabaAbierto = !!document.querySelector('.dropdown-menu.show')
+
+            // Cerrar todos primero
+            document.querySelectorAll('.dropdown-menu.show').forEach(s => s.classList.remove('show'))
+
+            if (yaAbierto) {
+                // Estamos cerrando: esperar que cierre y después quitar márgenes
+                setTimeout(() => menu.classList.remove('show'), 300)
+            } else {
+                // Estamos abriendo
+                if (algoEstabaAbierto) {
+                    // Cambio de dropdown: el menu ya tiene show, abrir sin delay
+                    submenu.classList.add('show')
+                } else {
+                    // Primera apertura: expandir menu primero, abrir dropdown después
+                    menu.classList.add('show')
+                    setTimeout(() => submenu.classList.add('show'), 300)
+                }
+            }
+        }) */
     })
 
     /* MENU MOVIL */
@@ -78,8 +104,14 @@ function initNav() {
         const submenu = drop.querySelector('.dropdown-menu-movil')
     
         parentLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            submenu.classList.toggle('show-submenu')
+            e.preventDefault()
+            const yaAbierto = submenu.classList.contains('show-submenu')
+
+            // Cerrar todos los submenús móviles primero
+            document.querySelectorAll('.dropdown-menu-movil.show-submenu').forEach(s => s.classList.remove('show-submenu'))
+
+            // Abrir este si no estaba ya abierto
+            if (!yaAbierto) submenu.classList.add('show-submenu')
         })
     })
     

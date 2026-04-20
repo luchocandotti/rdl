@@ -71,6 +71,17 @@ nav.color {
     margin-bottom: 40px;
 }
 
+#bird {
+    opacity: 0;
+    height: 50px;
+    width: auto;
+    transform: translateY(2px);
+    transition: opacity 0.6s ease, height 0.3s ease-in-out;
+}
+#menu.show #bird {
+    height: 70px;
+}
+
 /* Solo el ul principal en fila */
 #menu > ul {
     display: flex;
@@ -110,14 +121,7 @@ nav.color {
 
 .dropdown-menu.show {
     max-height: 300px;
-}
-
-#bird {
-    opacity: 0;
-    height: 50px;
-    width: auto;
-    transform: translateY(2px);
-    transition: opacity 0.6s ease;
+    transition: max-height 1s ease-out;
 }
 
 #movil {
