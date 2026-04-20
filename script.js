@@ -95,7 +95,8 @@ function initNav() {
     const menuMovil = document.querySelector('#menu-movil');
 
     menuIcon.addEventListener('click', () => {
-        menuMovil.classList.toggle('show')
+        const abierto = menuMovil.classList.toggle('show')
+        menuIcon.src = abierto ? 'img/nav_close.svg' : 'img/nav_movil.svg'
     })
 
     const dropdownsMovil = document.querySelectorAll('.dropdown-movil')
@@ -149,32 +150,30 @@ if (track && dotsContainer) {
         const prevIndex = currentIndex > 0 ? currentIndex - 1 : totalSlides - 1
         goToSlide(prevIndex)
     })
+
+    // Touch swipe (solo se activa si el gesto es horizontal)
+    let touchStartX = 0
+    let touchStartY = 0
+    
+    const carousel = document.querySelector('#hero-carousel')
+    if (carousel) {
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX
+            touchStartY = e.touches[0].clientY
+        }, { passive: true })
+    
+        carousel.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX
+            const dy = e.changedTouches[0].clientY - touchStartY
+            if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return
+            if (dx < 0) {
+                goToSlide(currentIndex < totalSlides - 1 ? currentIndex + 1 : 0)
+            } else {
+                goToSlide(currentIndex > 0 ? currentIndex - 1 : totalSlides - 1)
+            }
+        }, { passive: true })
+    }
 }
-
-// Touch swipe (solo se activa si el gesto es horizontal)
-let touchStartX = 0
-let touchStartY = 0
-
-const carousel = document.querySelector('#hero-carousel')
-if (carousel) {
-    carousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX
-        touchStartY = e.touches[0].clientY
-    }, { passive: true })
-
-    carousel.addEventListener('touchend', (e) => {
-        const dx = e.changedTouches[0].clientX - touchStartX
-        const dy = e.changedTouches[0].clientY - touchStartY
-        if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return
-        if (dx < 0) {
-            goToSlide(currentIndex < totalSlides - 1 ? currentIndex + 1 : 0)
-        } else {
-            goToSlide(currentIndex > 0 ? currentIndex - 1 : totalSlides - 1)
-        }
-    }, { passive: true })
-}
-
-
 
 
 // BOTONES 
@@ -183,6 +182,6 @@ const btnLanguage = document.querySelectorAll('.btn-gray')
 
 if (btnBases) {
     btnBases.addEventListener('click', function () {
-        btnLanguage.forEach(btn => btn.classList.toggle('visible'));
-    });
+        btnLanguage.forEach(btn => btn.classList.toggle('visible'))
+    })
 }

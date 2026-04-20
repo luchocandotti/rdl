@@ -505,6 +505,11 @@ section p {
     .dropdown-movil > a {
         cursor: pointer;
     }
+
+    #header img {
+        width: 200px;
+        height: auto;
+    }
 }
 
 @media(max-width: 1080px) {
