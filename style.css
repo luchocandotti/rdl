@@ -36,7 +36,7 @@ body {
     min-height: 100dvh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 
 /* ============================================
@@ -577,7 +577,6 @@ section p {
 /* SECCIONES */
 #secciones {
     width: 100%;
-    margin-bottom: 40px;
 }
 
 #secciones ul {
