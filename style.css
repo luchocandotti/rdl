@@ -39,7 +39,9 @@ body {
     align-items: center;
 }
 
-/* nav*/
+/* ============================================
+    NAV
+============================================ */
 
 nav {
     position: fixed;
@@ -66,6 +68,7 @@ nav.color {
     align-items: center;
     transition: width 0.3s ease, margin-top 0.2s ease, margin-bottom 0.5s ease;
 }
+
 #menu.show {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -78,12 +81,13 @@ nav.color {
     transform: translateY(2px);
     transition: opacity 0.6s ease, height 0.3s ease-in-out;
 }
+
 #menu.show #bird {
     height: 70px;
 }
 
 /* Solo el ul principal en fila */
-#menu > ul {
+#menu>ul {
     display: flex;
     gap: 20px;
     list-style: none;
@@ -108,14 +112,15 @@ nav.color {
     gap: 10px;
     transition: max-height 0.3s ease;
 }
-.dropdown > a::after {
+
+.dropdown>a::after {
     content: " ⌄";
     display: inline-block;
     margin-left: 6px;
     transform: translateY(-4px);
 }
 
-.dropdown-menu > li:first-child {
+.dropdown-menu>li:first-child {
     margin-top: 10px;
 }
 
@@ -135,12 +140,24 @@ nav.color {
     display: none;
 }
 
+#menu-movil ul {
+    width: 100%;
+    text-align: left;
+}
+
 /* ========================= */
 
 h1 {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
     text-transform: uppercase;
 }
 
@@ -377,6 +394,26 @@ section p {
     height: 60px;
 }
 
+/* Seleccionamos el ID con # */
+#ediciones-anteriores {
+    width: 100%;
+    max-width: 800px;
+    /* Limita el ancho para que no se pegue a los bordes */
+    text-align: left;
+    /* Todo lo que esté adentro empieza a la izquierda */
+}
+
+/* Quitamos los puntos y el espacio de la lista */
+#ediciones-anteriores ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Opcional: un poquito de espacio entre proyectos para que respire */
+#ediciones-anteriores li {
+    margin-bottom: 10px;
+}
+
 /* ============================================
     HOVERS solo en DESK
 ============================================ */
@@ -394,6 +431,7 @@ section p {
     #movil:hover {
         filter: invert(1);
     }
+
     #menu a:hover,
     #menu-movil a:hover {
         color: var(--color-black);
@@ -412,6 +450,7 @@ section p {
         transform: translateY(-1px);
         width: 100%;
     }
+
     #movil {
         display: flex;
         cursor: pointer;
@@ -443,9 +482,18 @@ section p {
         margin-top: 0;
     }
 
+    .sponsors-row:first-child img:nth-child(3),
+    .sponsors-row:first-child img:nth-child(4) {
+        height: 35px;
+    }
+
+    .sponsors-row:last-child img:nth-child(3) {
+        height: 50px;
+    }
+
     /*MENU MOVIL*/
     /* Ocultar menu desktop */
-    nav #menu > ul {
+    nav #menu>ul {
         display: none;
     }
 
@@ -456,23 +504,29 @@ section p {
         overflow: hidden;
         transition: max-height 0.7s ease-in-out;
     }
+
     #menu-movil ul {
         list-style: none;
         display: flex;
         flex-direction: column;
     }
+
     /* Agrega espacio solo a los ul hijos de menu-movil */
-    #menu-movil > ul {
+    #menu-movil>ul {
         gap: 20px;
         padding: 0 40px 30px 40px;
     }
+
     /* Agrega espacio solo a los ul hijos de .dropdown-movil */
-    .dropdown-movil > ul {
+    .dropdown-movil>ul {
         gap: 20px;
     }
+
     #menu-movil.show {
-        max-height: 1000px; /* mayor al contenido real */
+        max-height: 1000px;
+        /* mayor al contenido real */
     }
+
     #menu-movil a {
         text-decoration: none;
         text-transform: uppercase;
@@ -488,21 +542,24 @@ section p {
         overflow: hidden;
         transition: max-height 0.7s ease-in-out;
     }
-    .dropdown-movil > a::after {
+
+    .dropdown-movil>a::after {
         content: " ⌄";
         display: inline-block;
         margin-left: 6px;
         transform: translateY(-4px);
     }
-    .dropdown-menu-movil > li:first-child {
+
+    .dropdown-menu-movil>li:first-child {
         margin-top: 20px;
     }
+
     .dropdown-menu-movil.show-submenu {
         max-height: 300px;
     }
 
     /* Flecha o indicador visual (opcional) */
-    .dropdown-movil > a {
+    .dropdown-movil>a {
         cursor: pointer;
     }
 
