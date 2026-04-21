@@ -406,24 +406,6 @@ section p {
     height: 60px;
 }
 
-/* SECCIONES */
-
-#secciones {
-    width: 100%;
-}
-
-#secciones ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 20px;
-}
-
-#secciones ul li::before {
-  content: "— ";
-  margin-right: 10px;
-}
-
 /* ============================================
     HOVERS solo en DESK
 ============================================ */
@@ -591,6 +573,24 @@ section p {
 
 
 /* ========================= */
+
+/* SECCIONES */
+#secciones {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+#secciones ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+#secciones ul li::before {
+  content: "— ";
+  margin-right: 10px;
+}
 
 footer {
     margin-top: 40px;
