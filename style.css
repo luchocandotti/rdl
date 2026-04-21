@@ -154,6 +154,18 @@ h1 {
     text-transform: uppercase;
 }
 
+h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
 
 p {
     font-weight: 400;
@@ -361,7 +373,7 @@ section p {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    margin-top: 40px;
+    margin-top: 50px;
     transition: width 0.3s ease;
 }
 
@@ -388,13 +400,22 @@ section p {
     height: 60px;
 }
 
-/* Seleccionamos el ID con # */
-#ediciones-anteriores {
+/* SECCIONES */
+
+#secciones {
     width: 100%;
-    max-width: 800px;
-    /* Limita el ancho para que no se pegue a los bordes */
-    text-align: left;
-    /* Todo lo que esté adentro empieza a la izquierda */
+}
+
+#secciones ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+#secciones ul li::before {
+  content: "— ";
+  margin-right: 10px;
 }
 
 /* ============================================
@@ -443,6 +464,10 @@ section p {
         width: 100%;
         padding: 40px;
         margin: 0;
+    }
+
+    #hero-carousel {
+        aspect-ratio: 4/3;
     }
 
     .carousel-btn {
@@ -564,4 +589,6 @@ section p {
 footer {
     margin-top: 40px;
     color: var(--color-off);
+    font-size: 12px;
+    text-align: center;
 }

@@ -14,6 +14,13 @@ fetch('nav.html')
         initNav()
     })
 
+// INYECTA FOOTER HTML
+fetch('footer.html')
+    .then(res => res.text())
+    .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html
+    })
+
 
 //NAV
 function initNav() {
