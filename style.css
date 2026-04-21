@@ -154,12 +154,6 @@ h1 {
     text-transform: uppercase;
 }
 
-h2 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
 
 p {
     font-weight: 400;
@@ -401,17 +395,6 @@ section p {
     /* Limita el ancho para que no se pegue a los bordes */
     text-align: left;
     /* Todo lo que esté adentro empieza a la izquierda */
-}
-
-/* Quitamos los puntos y el espacio de la lista */
-#ediciones-anteriores ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-/* Opcional: un poquito de espacio entre proyectos para que respire */
-#ediciones-anteriores li {
-    margin-bottom: 10px;
 }
 
 /* ============================================
