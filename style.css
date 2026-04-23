@@ -207,7 +207,6 @@ section p {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 80px;
 }
 
 #header img {
@@ -581,6 +580,7 @@ section p {
 /* SECCIONES */
 #secciones {
     width: 100%;
+
 }
 
 #secciones ul {
