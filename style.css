@@ -377,6 +377,10 @@ section p {
     margin-top: auto;
 }
 
+.contacto p {
+    margin-bottom: 5px;
+}
+
 #sponsors {
     width: 70%;
     display: flex;
