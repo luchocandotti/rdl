@@ -410,6 +410,85 @@ section p {
 }
 
 /* ============================================
+    FOOTER CENTRADO
+============================================ */
+.footer-container {
+    width: 100%;
+    max-width: 1080px;
+    display: flex;
+    flex-direction: column;
+    /* Apila sponsors arriba y textos abajo */
+    align-items: center;
+    /* Centra absolutamente todo */
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--color-gray);
+    gap: 35px;
+    /* Separación vertical entre logos y textos */
+}
+
+.footer-sponsors {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Fuerza a 1 sola línea */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.footer-sponsors img {
+    height: 40px;
+    /* Tamaño máximo deseado */
+    min-width: 0;
+    /* TRUCO: Obliga a la imagen a achicarse si falta espacio, manteniendo la fila */
+    object-fit: contain;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.footer-sponsors img:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Textos centrados */
+    gap: 6px;
+    /* Separación entre mail e insta */
+    margin-bottom: 20px;
+}
+
+.footer-bottom a {
+    text-decoration: none;
+    color: var(--color-black);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-bottom a:hover {
+    color: var(--color-orange);
+}
+
+.footer-copyright {
+    color: var(--color-off);
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+    margin-top: 5px;
+    /* Un poquito más de separación entre el insta y la marca */
+}
+
+/* En celulares (pantallas muy chicas) sí o sí deben bajar de línea los logos porque no hay espacio físico */
+@media(max-width: 850px) {
+    .footer-sponsors {
+        flex-wrap: wrap;
+    }
+}
+
+/* ============================================
     HOVERS solo en DESK
 ============================================ */
 
